@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column align-center ">
     <v-icon size="150" class="mt-7" color="light-blue darken-3">mdi-map-marker-check</v-icon>
-    <h2 class="text-h4 text-center mt-8 ">Let's Get that IP tracked...!!!</h2>
+    <h2 class="text-h4 text-center mt-8">Let's Get that IP tracked...!!!</h2>
     <div class="input-area d-flex">
       <v-text-field
         v-model.lazy="ip"
@@ -39,6 +39,10 @@
           </tbody>
         </template>
       </v-simple-table>
+      <div class="d-flex flex-column align-center">
+        <h3 class="text-h5 text-center mt-8 mb-4">Live Location</h3>
+        <iframe  :src="`https://maps.google.com/maps?q=${ipData ? ipData[0].lat : ''},${ipData ? ipData[0].lon : ''}&hl=es&z=14&amp;output=embed`" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </div>
     <DesignComponet />
   </div>
@@ -85,7 +89,7 @@ export default {
 
 <style scoped>
 .input-area {
-  width: 50%;
+  width: 40%;
   margin: 1.5rem auto;
 }
 .table-box{
